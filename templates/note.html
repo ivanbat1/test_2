@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block login %}
+<p>Add your note</p>
+<form action="/" method="POST">{% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+    {% if username %}
+{% for n in note %}
+    {{ n.note }}<br>
+{% endfor %}
+    {% endif %}
+{% endblock %}

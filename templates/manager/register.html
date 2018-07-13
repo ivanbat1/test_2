@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block login %}
+
+        <div class="general-container">
+    <div class="container top-container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div>
+
+
+
+
+  <form method="post">
+        {% csrf_token %}
+
+  <h6>Check your email</h6>
+{% for field in form %}
+    <div class="form-group">
+        {{ field.errors }}
+        {{ field.html_name }}<br>
+        {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+{#            {{ form }}#}
+
+
+    <button type="submit">Sign up</button>
+  </form>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
